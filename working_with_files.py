@@ -2,7 +2,7 @@ import hashlib
 from os import listdir, walk, remove
 from os.path import isdir, getsize, join
 from pathlib import Path
-from typing import Iterator, List, Dict
+from typing import Iterator, List
 
 
 def get_all_files_in_dir(repo: Path, extension: str = None) -> Iterator[Path]:
