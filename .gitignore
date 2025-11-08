@@ -210,4 +210,4 @@ __marimo__/
 slides/*
 cropped/*
 .idea/*
-test_data/*
+tests/data/*

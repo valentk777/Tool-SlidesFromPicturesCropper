@@ -62,7 +62,7 @@ def extract_slide_from_white_background(_image_path: Path):
     x_contour, y_contour, w_contour, h_contour = cv.boundingRect(largest_contour)
 
     # Check if the contour is large enough
-    if w_contour > 0.4 * w and h_contour > 0.4 * h:
+    if w_contour > 0.8 * w and h_contour > 0.4 * h:
         # Get the minimum area rectangle
         rect = cv.minAreaRect(largest_contour)
         box = cv.boxPoints(rect)
@@ -70,6 +70,9 @@ def extract_slide_from_white_background(_image_path: Path):
 
         # Crop and de-skew the slide
         warped = perspective_transform(img, box.astype("float32"))
+
+        # Check if the warped image is wide enough
+        # if (warped.shape[1] / w) > 0.85:
         return warped
 
     return None
