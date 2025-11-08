@@ -62,7 +62,7 @@ def extract_slide_from_white_background(_image_path: Path):
     x_contour, y_contour, w_contour, h_contour = cv.boundingRect(largest_contour)
 
     # Check if the contour is large enough
-    if w_contour > 0.5 * w or h_contour > 0.5 * h:
+    if w_contour > 0.4 * w and h_contour > 0.4 * h:
         # Get the minimum area rectangle
         rect = cv.minAreaRect(largest_contour)
         box = cv.boxPoints(rect)

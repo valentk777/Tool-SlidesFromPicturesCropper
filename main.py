@@ -37,7 +37,8 @@ if __name__ == "__main__":
     images = get_all_files_in_dir(SLIDES_PATH)
 
     for image_path in images:
-        for detected_slide in extract_images_using_multiple_iterators(image_path):
+        detected_slide = extract_images_using_multiple_iterators(image_path)
+        if detected_slide is not None:
             save_image(detected_slide, image_path.name, iteration_path)
 
     check_for_duplicates_and_remove_if_exist(str(iteration_path))
